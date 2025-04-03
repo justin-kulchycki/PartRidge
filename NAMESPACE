@@ -1,0 +1,6 @@
+exportPattern("^[[:alpha:]]+")
+
+export(Dummy_Encode)
+export(PartRidge)
+export(PlotPartRidge)
+

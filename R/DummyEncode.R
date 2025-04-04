@@ -5,7 +5,7 @@
 #' @param Categorical_Variables A vector of variables in the data set the user would like to dummy encode.
 #' @return A data frame where the categorical columns are one-hot encoded. Each unique category in the original column maps to a new column in the resulting data frame. If a particular observation was of that category, it will contain a 1 in this column. If not, it will contain a 0.
 #' @export
-Dummy_Encode <- function(data, Categorical_Variables) {
+DummyEncode <- function(data, Categorical_Variables) {
   # Make a copy of the original data frame to avoid modifying the original
   data_copy <- data
 

@@ -1,0 +1,38 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# PartRidge
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+PartRidge allows the user to extract and visualize partial residuals from a ridge regression model fit with glmnet.
+
+## Installation
+
+You can install the development version of PartRidge from [GitHub](https://github.com/) with:
+
+``` r
+devtools::install_github("justin-kulchycki/PartRidge")
+```
+
+## Obtaining partial residuals
+
+Examining partial residuals can provide insight into the effects of individual predictor variables on the target variable.
+
+```{r example}
+library(PartRidge)
+## basic example code
+```

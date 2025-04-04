@@ -7,7 +7,7 @@
 PlotPartRidge(partial_residuals_df, dummy = FALSE, dummy_vars = NULL)
 }
 \arguments{
-\item{partial_residuals_df}{The data frame titled "partial_residuals" located in the output list of the PartRidge function.}
+\item{partial_residuals_df}{The data frame titled "partial_residuals" located in the output list of the ObtainPartRidge function.}
 
 \item{dummy}{Argument tells PlotPartRidge if the input data set contained any variables that were dummy encoded.}
 

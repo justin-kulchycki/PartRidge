@@ -1,7 +1,7 @@
 #' Plot the partial residuals obtained with PartRidge
 #'
 #' This function produces box plots of the data frame of partial residuals.
-#' @param partial_residuals_df The data frame titled "partial_residuals" located in the output list of the PartRidge function.
+#' @param partial_residuals_df The data frame titled "partial_residuals" located in the output list of the ObtainPartRidge function.
 #' @param dummy Argument tells PlotPartRidge if the input data set contained any variables that were dummy encoded.
 #' @param dummy_vars If there are dummy encoded variables, dummy_vars takes in a vector of those variables. Additional pre-processing of dummy encoded partial residual values is necessary for gaining insight into these coefficients.
 #' @return An object of class "gg" "ggplot" containing you visualization of the partial residuals of your model coefficients.

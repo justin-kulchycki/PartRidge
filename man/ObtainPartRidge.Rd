@@ -2,14 +2,14 @@
 % Please edit documentation in R/ObtainPartRidge.R
 \name{ObtainPartRidge}
 \alias{ObtainPartRidge}
-\title{Obtain partial residuals for a Ridge Regression Model fit with glmnet.}
+\title{Obtain partial residuals for a ridge regression rodel fit with glmnet.}
 \usage{
 ObtainPartRidge(df, Target_Variable, lambda)
 }
 \arguments{
-\item{df}{A dense data frame used to fit a Ridge Regression Model.}
+\item{df}{A dense data frame used to fit a ridge regression model.}
 
-\item{Target_Variable}{The Y variable to be predicted using the Ridge Regression Model. All other variables in the data frames are predictors.}
+\item{Target_Variable}{The Y variable to be predicted using the ridge regression rodel. All other variables in the data frames are predictors.}
 
 \item{lambda}{The labmda value to use for the Ridge penalty. This should be determined prior using cross-validation.}
 }

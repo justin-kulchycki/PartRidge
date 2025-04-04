@@ -2,7 +2,7 @@
 % Please edit documentation in R/PlotPartRidge.R
 \name{PlotPartRidge}
 \alias{PlotPartRidge}
-\title{Plot the partial residuals obtained with PartRidge}
+\title{Plot the partial residuals obtained with ObtainPartRidge}
 \usage{
 PlotPartRidge(partial_residuals_df, dummy = FALSE, dummy_vars = NULL)
 }

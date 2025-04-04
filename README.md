@@ -20,7 +20,7 @@ devtools::install_github("justin-kulchycki/PartRidge")
 
 ## Obtaining partial residuals
 
-Examining partial residuals can provide insight into the effects of
+Examining partial residuals provides insight into the effects of
 individual predictor variables on the target variable.
 
 ``` r

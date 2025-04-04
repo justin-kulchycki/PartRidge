@@ -1,8 +1,8 @@
-#' Obtain partial residuals for a Ridge Regression Model fit with glmnet.
+#' Obtain partial residuals for a ridge regression rodel fit with glmnet.
 #'
 #' This function takes a data frame, a target variable within that data frame (all other variables are predictors), and a lambda value to be used to fit a Ridge Regression model using glmnet. The function returns a list containg the ridge model (class "elnet" "glmnet"), the predicted values of the target variable (class = "matrix" "array"), the actual values of the target variable (class = "matrix" "array"), and the partial residuals for each coefficient in the model (class = "data.frame").
-#' @param df A dense data frame used to fit a Ridge Regression Model.
-#' @param Target_Variable The Y variable to be predicted using the Ridge Regression Model. All other variables in the data frames are predictors.
+#' @param df A dense data frame used to fit a ridge regression model.
+#' @param Target_Variable The Y variable to be predicted using the ridge regression rodel. All other variables in the data frames are predictors.
 #' @param lambda The labmda value to use for the Ridge penalty. This should be determined prior using cross-validation.
 #' @return The function returns a list containg the ridge model (class "elnet" "glmnet"), the predicted values of the target variable (class = "matrix" "array"), the actual values of the target variable (class = "matrix" "array"), and the partial residuals for each coefficient in the model (class = "data.frame").
 #' @export

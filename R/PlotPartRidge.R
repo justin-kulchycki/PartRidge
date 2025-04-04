@@ -1,4 +1,4 @@
-#' Plot the partial residuals obtained with PartRidge
+#' Plot the partial residuals obtained with ObtainPartRidge
 #'
 #' This function produces box plots of the data frame of partial residuals.
 #' @param partial_residuals_df The data frame titled "partial_residuals" located in the output list of the ObtainPartRidge function.

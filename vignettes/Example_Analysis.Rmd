@@ -1,5 +1,5 @@
 ---
-title: "PartRidge Example Analysis"
+title: "Example_Analysis"
 author: Justin Kulchycki
 output: rmarkdown::html_vignette
 vignette: >

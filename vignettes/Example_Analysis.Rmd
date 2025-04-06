@@ -3,9 +3,9 @@ title: "Example_Analysis"
 author: Justin Kulchycki
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Example_Analysis}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  \VignetteIndexEntry{Example_Analysis}
+  \VignetteEngine{knitr::rmarkdown}
+  \VignetteEncoding{UTF-8}
 ---
 
 This vignette demonstrates the functionality of PartRidge using the palmerpenguins data set.

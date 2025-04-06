@@ -18,9 +18,10 @@ library(PartRidge)
 
 # Analysis of palmerpenguins data
 
-Let's load in the penguins data set and use PartRidge to perform exploratory analysis.
+Let's load in the palmerpenguins data set and use PartRidge to perform exploratory analysis.
 
 ```{r}
+library(palmerpenguins)
 penguins <- na.omit(penguins) #PartRidge should be run with a complete data set w/ no NAs
 penguins_df <- as.data.frame(penguins) #Objects processed by PartRidge should be of class "data.frame" exclusively
 ```

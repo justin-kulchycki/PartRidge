@@ -6,6 +6,13 @@ Author: Justin Kulchycki
 Maintainer: Justin Kulchycki <justin.kulchycki@gmail.com>
 Description: PartRidge takes in data analyzed using Ridge Regression. The data can be numeric or categorical (character). PartRidge is comprised of three functions. The first, Dummy_Encode, allows the user to one-hot encode categorical variables to include in a Ridge Regression analysis. The second function, PartRidge, takes a dataset, a target variable within that dataset (all other variables are predictors), and a lambda value to be used to fit a Ridge Regression model using glmnet. The function returns the partial residuals for each coefficient in the model. The third function, PlotPartRidge, produces box plots of the data frame of partial residuals.
 License: What license is it under?
+Imports:
+  glmnet,
+  ggplot2,
+  dplyr,
+  tidyr,
+  reshape2,
+  cowplot
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2

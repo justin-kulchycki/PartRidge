@@ -7,7 +7,6 @@
 #' @return The function returns a list containg the ridge model (class "elnet" "glmnet"), the predicted values of the target variable (class = "matrix" "array"), the actual values of the target variable (class = "matrix" "array"), and the partial residuals for each coefficient in the model (class = "data.frame").
 #' @export
 ObtainPartRidge <- function(df, Target_Variable, lambda) {
-  library(glmnet)
 
   # Step 1: Split the data into training (80%) and testing (20%) sets
   set.seed(2112)  # For reproducibility

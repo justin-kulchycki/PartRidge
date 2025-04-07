@@ -85,8 +85,4 @@ Plot <- PlotPartRidge(Res, dummy = TRUE, dummy_vars = Cat_Vars)
 
 Now for some basic interpretations. The position of each group on the y-axis gives us information regarding the effect of that given variable on body mass, after adjusting for the effects of all other variables in the model!
 
-# Conclusion
-
-This vignette provides an example analysis of parital residuals using the PartRidge package. The resulting visualization can be used to generate hypotheses about which numeric and categorical variables within a model have substantial effects on the the target variable. These relevant relationships can masked by confounding variables, and as a result, might be missed using other analysis methods. 
-
 

@@ -62,7 +62,6 @@ The function PlotPartRidge() produces plots of partial residuals. The function c
 
 ```{r}
 Species_Res <- Res[, c("Adelie", "Gentoo", "Chinstrap")]
-View(Species_Res)
 ```
 
 You'll notice that an individual observation contains redundant partial residual values for the columns that were dummy encoded as 0's. The value that provides insight is the unique value contained in the dummy encoded categorical column for which a given observation actually belonged to. In this example, row 5 is actually an Adelie penguin, which can be reflected by it's unique partial residual value of -515.2607392. This is the information we want to use for plotting!

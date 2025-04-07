@@ -31,7 +31,7 @@ Each unique category in the original column maps toa bew column in the resulting
 If a particular observation was of that category, it will contain a 1 in this column. If not, it will contain a 0.
 
 ```{r}
-data_dummy <- DummyEncode(data, Categorical_Variables = c("categorical_variable_1", "categorical_variable_2"))
+data_dummy <- DummyEncode(data, Categorical_Variables = c("categorical_variable_1", "categorical_variable_2")) #Switch names to variables in your data frame
 ```
 
 Now we have a data frame suitable for analysis with PartRidge!
@@ -49,7 +49,7 @@ However, it does allow the user to examine partial residual values for any given
 The data are split using an 80/20 percent train/test strategy. Partial residuals for the test set are returned in a data frame within the functions output. 
 
 ```{r}
-Model <- ObtainPartRidge(data_dummy, Target_Variable = "Y", lambda = 0.1)
+Model <- ObtainPartRidge(data_dummy, Target_Variable = "Y", lambda = 0.1) #"Y" is the variable in your data frame that you want to predict using all other variables
 ```
 
 Lets extract the partial residuals from the output list for downstream analysis.
@@ -74,7 +74,7 @@ However, the benefit of examining partial residuals of categorical variables res
 Let's create a vector of all dummy encoded categorical variables to pass into the PlotPartRidge() function
 
 ```{r}
-Cat_Vars <- colnames(Res[, c("categorical_variable_1_category_1", "categorical_variable_1_categor_2", "catergorical_variable_2_category_1", "categorical_variable_category_2")])
+Cat_Vars <- colnames(Res[, c("categorical_variable_1_category_1", "categorical_variable_1_categor_2", "catergorical_variable_2_category_1", "categorical_variable_category_2")]) ##Switch names to variables in your data frame. Each category from the original categorical data frame will have its own column in the dummy encoded data frame
 ```
 
 Now let's plot our data!

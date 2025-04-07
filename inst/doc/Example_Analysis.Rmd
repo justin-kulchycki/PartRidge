@@ -18,6 +18,7 @@ knitr::opts_chunk$set(
 knitr::opts_chunk$set(fig.width=10, fig.height=6, dpi = 100)
 ```
 
+# Load the package
 
 ```{r}
 library(PartRidge)

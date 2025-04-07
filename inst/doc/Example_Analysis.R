@@ -4,6 +4,9 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 
+## ----setup, include=FALSE-----------------------------------------------------
+knitr::opts_chunk$set(fig.width=10, fig.height=6, dpi = 100)
+
 ## -----------------------------------------------------------------------------
 library(PartRidge)
 
@@ -23,6 +26,8 @@ Res <- Model$partial_residuals
 
 ## -----------------------------------------------------------------------------
 Species_Res <- Res[, c("Adelie", "Gentoo", "Chinstrap")]
+library(DT)
+datatable(Species_Res)
 
 ## -----------------------------------------------------------------------------
 Cat_Vars <- colnames(Res[, 4:14])

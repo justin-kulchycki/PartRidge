@@ -16,6 +16,8 @@ You can install the development version of PartRidge from
 devtools::install_github("justin-kulchycki/PartRidge")
 ```
 
+# Load the package
+
 ```{r example}
 library(PartRidge)
 ```

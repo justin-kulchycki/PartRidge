@@ -12,11 +12,6 @@
 #' @return An object of class "gg" "ggplot" containing you visualization of the partial residuals of your model coefficients.
 #' @export
 PlotPartRidge <- function(partial_residuals_df, dummy = FALSE, dummy_vars = NULL) {
-  library(ggplot2)
-  library(dplyr)
-  library(tidyr)
-  library(reshape2)
-  library(cowplot)
   # If dummy is TRUE, we need to process dummy-encoded variables
   if (dummy) {
     if (is.null(dummy_vars)) {

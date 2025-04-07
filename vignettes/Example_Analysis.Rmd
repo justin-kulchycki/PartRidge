@@ -1,0 +1,92 @@
+---
+title: "Example_Analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Example_Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r}
+library(PartRidge)
+```
+
+# Analysis of palmerpenguins data
+
+Let's load in the palmerpenguins data set and use PartRidge to perform exploratory analysis.
+
+```{r}
+library(palmerpenguins)
+penguins <- na.omit(penguins) #PartRidge should be run with a complete data set w/ no NAs
+penguins_df <- as.data.frame(penguins) #Objects processed by PartRidge should be of class "data.frame" exclusively
+```
+
+# Encode Categorical Variables
+
+PartRidge has a one-hot encoder function to encode categorical variables. The function takes in a data.frame and a vector of categorical variables to be dummy encoded. Each unique category in the original column maps toa bew column in the resulting data frame. If a particular observation was of that category, it will contain a 1 in this column. If not, it will contain a 0.
+
+```{r}
+penguins_dummy <- DummyEncode(penguins_df, Categorical_Variables = c("species", "island", "sex", "year"))
+```
+
+Now we have a data frame suitable for analysis with PartRidge!
+
+# Obtain Partial Residuals for Predictor Variables
+
+Let's use our encoded data frame to fit a glmnet ridge regression model and examine the partial residuals of the X variables. 
+
+The function ObtainPartRidge() takes in a data frame, a target variable within that data frame (all other variables are predictors), and a lambda value to be used to fit a Ridge Regression model using glmnet. This function does not perform lambda optimization through cross-validation. However, it does allow the user to examine partial residual values for any given lambda. The data are split using an 80/20 percent train/test strategy. Partial residuals for the test set are returned in a data frame within the functions output. 
+
+In this example, let's fit a model to predict body mass from all other available data. We will use a lambda value of 0.1, but the optimal lambda value should be determined using the cross-validate function directly from the glmnet package.
+
+```{r}
+Model <- ObtainPartRidge(penguins_dummy, Target_Variable = "body_mass_g", lambda = 0.1)
+```
+
+Lets extract the partial residuals from the output list for downstream analysis.
+
+```{r}
+Res <- Model$partial_residuals
+```
+
+# Visualize the Partial Residuals for Each Individual Predictor Variable
+
+Now that we have obtained partial residuals using ObtainPartRidge(), we can visualize them graphically to gain insight into our predictor variables.
+
+The function PlotPartRidge() produces plots of partial residuals. The function contains two additional arguments to specify if a given model was fit to categorical data using dummy encoding. The default of the function assumes that all predictor variables are numeric. However, the benefit of examining partial residuals of categorical variables results from additional preprocessing of the partial residual data frame. Let's look at the partial residuals for the "species" columns to understand why.
+
+```{r}
+Species_Res <- Res[, c("Adelie", "Gentoo", "Chinstrap")]
+```
+
+You'll notice that an individual observation contains redundant partial residual values for the columns that were dummy encoded as 0's. The value that provides insight is the unique value contained in the dummy encoded categorical column for which a given observation actually belonged to. In this example, row 5 is actually an Adelie penguin, which can be reflected by it's unique partial residual value of -515.2607392. This is the information we want to use for plotting!
+
+The PlotPartRidge() function removes all redundant values corresponding to dummy encoded values of 0. This results in a plot that only shows partial residual values of individual samples that were actually of the category that the dummy encoded categorical variable is accounting for. 
+
+Let's create a vector of all dummy encoded categorical variables to pass into the PlotPartRidge() function
+
+```{r}
+Cat_Vars <- colnames(Res[, 4:14])
+```
+
+Now let's plot our data!
+
+```{r}
+Plot <- PlotPartRidge(Res, dummy = TRUE, dummy_vars = Cat_Vars)
+Plot
+```
+
+Now for some basic interpretations. The position of each group on the y-axis gives us information regarding the effect of that given variable on body mass, after adjusting for the effects of all other variables in the model!
+
+# Conclusion
+
+This vignette provides an example analysis of parital residuals using the PartRidge package. The resulting visualization can be used to generate hypotheses about which numeric and categorical variables within a model have substantial effects on the the target variable. These relevant relationships can masked by confounding variables, and as a result, might be missed using other analysis methods. 
+
+

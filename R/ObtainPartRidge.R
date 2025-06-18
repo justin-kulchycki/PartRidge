@@ -22,7 +22,7 @@ ObtainPartRidge <- function(df, Target_Variable, lambda) {
   Y_test <- test_set[[Target_Variable]]
 
   # Step 3: Perform Ridge Regression
-  ridge_model <- glmnet::glmnet(as.matrix(X_train), Y_train, alpha = 0)  # alpha = 0 for Ridge
+  ridge_model <- glmnet::glmnet(as.matrix(X_train), Y_train, alpha = 0, lambda = lambda)  # alpha = 0 for Ridge
 
   # Step 4: Make predictions on the test set using the specified lambda
   Y_pred <- predict(ridge_model, as.matrix(X_test), s = lambda)  # Use the specified lambda
